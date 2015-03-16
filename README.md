@@ -2,7 +2,7 @@
 
 ### Base Docker Image
 
-busybox
+progrium/busybox
 
 ### 説明
 
