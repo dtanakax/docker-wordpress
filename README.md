@@ -1,3 +1,5 @@
+![wordpress latest](https://img.shields.io/badge/wordpress-latest-brightgreen.svg) ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
 # docker-wordpress
 
 ### Base Docker Image
@@ -23,7 +25,12 @@ git pull後に
 
 起動
 
-    $ docker run --name <name> -d -ti <tag>/wordpress
+    $ docker run --name <name> -d
+                 -e DB_NAME="wordpress" 
+                 -e DB_USER="wpuser"
+                 -e DB_PASSWORD="wppass"
+                 -e DB_HOST="db"
+                 -ti <tag>/wordpress
 
 コンテナ内へログイン
 
@@ -86,3 +93,7 @@ git pull後に
       image: tanaka0323/syslog
       volumes:
         - /var/log
+
+### License
+
+MIT
