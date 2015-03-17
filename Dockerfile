@@ -27,7 +27,6 @@ RUN tar zxvf /wordpress.tar.gz
 RUN mv /wordpress /var/www/html
 RUN rm -f /wordpress.tar.gz
 RUN chown -R www-data:www-data /var/www/html
-RUN chmod -R 755 /var/www/html
 
 # Define mountable directories.
 VOLUME ["/var/www/html", "/var/lib/mysql"]
