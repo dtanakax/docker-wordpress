@@ -64,7 +64,7 @@ git pull後に
         - "8081:80"
         - "8082:443"
       volumes_from:
-        - storage
+        - wordpress
         - log
 
     db:
@@ -75,10 +75,10 @@ git pull後に
         DB_USER: wpuser
         DB_PASSWORD: wppass
       volumes_from:
-        - storage
+        - wordpress
         - log
 
-    storage:
+    wordpress:
       image: tanaka0323/wordpress
       environment:
         DB_NAME: wordpress
@@ -90,7 +90,7 @@ git pull後に
         - /var/lib/mysql
 
     log:
-      image: tanaka0323/syslog
+      image: tanaka0323/storage
       volumes:
         - /var/log
 
