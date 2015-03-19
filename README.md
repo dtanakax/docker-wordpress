@@ -54,51 +54,7 @@ git pull後に
 
 [Figとは](http://www.fig.sh/ "Figとは")  
 
-以下はWordpress構成サンプル
-
-    log:
-      image: tanaka0323/syslog
-      volumes:
-        - /var/log/nginx
-        - /var/log/php-fpm
-        - /var/log/mariadb
-
-    contents:
-      image: tanaka0323/wordpress
-      environment:
-        DB_NAME: wordpress
-        DB_USER: wpuser
-        DB_PASSWORD: wppass
-        DB_HOST: db:3306
-      volumes:
-        - /var/www/html
-        - /var/lib/mysql
-
-    db:
-      image: tanaka0323/mariadb
-      ports:
-        - "3306:3306"
-      environment:
-        ROOT_PASSWORD: secret
-        DB_NAME: wordpress
-        DB_USER: wpuser
-        DB_PASSWORD: wppass
-      volumes_from:
-        - contents
-        - log
-
-    web:
-      image: tanaka0323/nginx-php
-      links:
-        - db
-      ports:
-        - "8081:80"
-      environment:
-        VIRTUAL_HOST: ap1.dockerhost.io
-        VIRTUAL_PORT: 8081
-      volumes_from:
-        - contents
-        - log
+[設定ファイル記述例](https://bitbucket.org/tanaka0323/fig-examples "設定ファイル記述例")
 
 ### License
 
