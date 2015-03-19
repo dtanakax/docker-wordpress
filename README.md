@@ -4,7 +4,7 @@
 
 ### Base Docker Image
 
-progrium/busybox
+tanaka0323/storage
 
 ### 説明
 
