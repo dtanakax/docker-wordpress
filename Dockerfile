@@ -1,24 +1,21 @@
 # Set the base image
-FROM progrium/busybox
+FROM tanaka0323/storage
 
 # File Author / Maintainer
 MAINTAINER tanaka@infocorpus.com
 
 # Install packages
-RUN opkg-install bash wget tar
+RUN opkg-install wget tar
 
 # Create directories
-RUN mkdir -p /var/www && \
-    mkdir -p /var/lib/mysql && \
-    mkdir -p /var/log/nginx && \
-    mkdir -p /var/log/php-fpm && \
-    mkdir -p /var/log/mariadb
+RUN mkdir -p /var/www/html && \
+    mkdir -p /var/lib/mysql
+RUN chmod -R 755 /var/www/html
 RUN chmod -R 755 /var/lib/mysql
-RUN chmod -R 755 /var/log
 
-ADD start.sh /start.sh
-RUN chown root:root /start.sh
-RUN chmod +x /start.sh
+ADD entrypoint.sh /entrypoint.sh
+RUN chown root:root /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # Setup Wordpress
 RUN rm -rf /var/www/html
@@ -27,8 +24,10 @@ RUN tar zxvf /wordpress.tar.gz
 RUN mv /wordpress /var/www/html
 RUN rm -f /wordpress.tar.gz
 RUN chown -R www-data:www-data /var/www/html
+RUN chmod -R 707 /var/www/html/wp-content
+ADD wp-config-footer.php /wp-config-footer.php
 
 # Define mountable directories.
 VOLUME ["/var/www/html", "/var/lib/mysql"]
 
-CMD ["/bin/bash", "/start.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

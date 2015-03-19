@@ -29,7 +29,7 @@ git pull後に
                  -e DB_NAME="wordpress" 
                  -e DB_USER="wpuser"
                  -e DB_PASSWORD="wppass"
-                 -e DB_HOST="db"
+                 -e DB_HOST="db:3306"
                  -ti <tag>/wordpress
 
 コンテナ内へログイン
@@ -56,43 +56,49 @@ git pull後に
 
 以下はWordpress構成サンプル
 
-    web:
-      image: tanaka0323/nginx-php
-      links:
-        - db
-      ports:
-        - "8081:80"
-        - "8082:443"
-      volumes_from:
-        - wordpress
-        - log
+    log:
+      image: tanaka0323/syslog
+      volumes:
+        - /var/log/nginx
+        - /var/log/php-fpm
+        - /var/log/mariadb
+
+    contents:
+      image: tanaka0323/wordpress
+      environment:
+        DB_NAME: wordpress
+        DB_USER: wpuser
+        DB_PASSWORD: wppass
+        DB_HOST: db:3306
+      volumes:
+        - /var/www/html
+        - /var/lib/mysql
 
     db:
       image: tanaka0323/mariadb
+      ports:
+        - "3306:3306"
       environment:
         ROOT_PASSWORD: secret
         DB_NAME: wordpress
         DB_USER: wpuser
         DB_PASSWORD: wppass
       volumes_from:
-        - wordpress
+        - contents
         - log
 
-    wordpress:
-      image: tanaka0323/wordpress
+    web:
+      image: tanaka0323/nginx-php
+      links:
+        - db
+      ports:
+        - "8081:80"
       environment:
-        DB_NAME: wordpress
-        DB_USER: wpuser
-        DB_PASSWORD: wppass
-        DB_HOST: db
-      volumes:
-        - /var/www/html
-        - /var/lib/mysql
-
-    log:
-      image: tanaka0323/storage
-      volumes:
-        - /var/log
+        VIRTUAL_HOST: ap1.dockerhost.io
+        VIRTUAL_PORT: 8081
+      volumes_from:
+        - contents
+        - log
 
 ### License
 
