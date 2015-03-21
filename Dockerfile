@@ -2,7 +2,7 @@
 FROM tanaka0323/storage
 
 # File Author / Maintainer
-MAINTAINER tanaka@infocorpus.com
+MAINTAINER Daisuke Tanaka, tanaka@infocorpus.com
 
 # Install packages
 RUN opkg-install wget tar
