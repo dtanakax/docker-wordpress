@@ -25,11 +25,11 @@ git pull後に
 
 起動
 
-    $ docker run --name <name> -d
-                 -e DB_NAME="wordpress" 
-                 -e DB_USER="wpuser"
-                 -e DB_PASSWORD="wppass"
-                 -e DB_HOST="db:3306"
+    $ docker run --name <name> -d \
+                 -e DB_NAME="wordpress" \
+                 -e DB_USER="wpuser" \
+                 -e DB_PASSWORD="wppass" \
+                 -e DB_HOST="db:3306" \
                  -ti <tag>/wordpress
 
 コンテナ内へログイン
