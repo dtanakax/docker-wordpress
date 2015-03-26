@@ -4,6 +4,12 @@ FROM tanaka0323/storage
 # File Author / Maintainer
 MAINTAINER Daisuke Tanaka, tanaka@infocorpus.com
 
+# Environment variables
+ENV DB_NAME         wordpress
+ENV DB_USER         wpuser
+ENV DB_PASSWORD
+ENV DB_HOST
+
 # Install packages
 RUN opkg-install wget tar
 

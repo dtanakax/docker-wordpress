@@ -1,11 +1,6 @@
 #!/bin/sh
 set -e
 
-DB_NAME=${DB_NAME:-wordpress}
-DB_USER=${DB_USER:-wpuser}
-DB_PASSWORD=${DB_PASSWORD:-""}
-DB_HOST=${DB_HOST:-""}
-
 WP_CONFIG="/var/www/html/wp-config.php"
 
 if [ ! -f $WP_CONFIG ]; then
