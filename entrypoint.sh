@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-WP_CONFIG="/var/www/html/wp-config.php"
+WP_CONFIG=/var/www/html/wp-config.php
 
 if [ ! -f $WP_CONFIG ]; then
     echo "=> Installing Wordpress ..."
