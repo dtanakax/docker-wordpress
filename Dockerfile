@@ -36,4 +36,5 @@ ADD wp-config-footer.php /wp-config-footer.php
 # Define mountable directories.
 VOLUME ["/var/www/html", "/var/lib/mysql"]
 
-ENTRYPOINT ["/entrypoint.sh"]
+# Executing sh
+ENTRYPOINT ./entrypoint.sh
