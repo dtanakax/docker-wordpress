@@ -6,7 +6,7 @@ WP_CONFIG=/var/www/html/wp-config.php
 if [ ! -f $WP_CONFIG ]; then
     echo "=> Installing Wordpress ..."
 
-    wget --no-check-certificate https://api.wordpress.org/secret-key/1.1/salt/
+    curl -k https://api.wordpress.org/secret-key/1.1/salt/ >> index.html
 
     # Configure Wordpress
     sed -i -e "/define('AUTH_KEY',         'put your unique phrase here');/,/require_once(ABSPATH . 'wp-settings.php');/d" /var/www/html/wp-config-sample.php

@@ -11,7 +11,7 @@ ENV DB_PASSWORD     wppass
 ENV DB_HOST         localhost
 
 # Install packages
-RUN opkg-install wget tar
+RUN opkg-install curl tar
 
 # Create directories
 RUN mkdir -p /var/www/html && \
@@ -25,7 +25,7 @@ RUN chmod +x /entrypoint.sh
 
 # Setup Wordpress
 RUN rm -rf /var/www/html
-ADD https://ja.wordpress.org/latest-ja.tar.gz /wordpress.tar.gz
+RUN curl -k https://ja.wordpress.org/latest-ja.tar.gz >> /wordpress.tar.gz
 RUN tar zxvf /wordpress.tar.gz
 RUN mv /wordpress /var/www/html
 RUN rm -f /wordpress.tar.gz
