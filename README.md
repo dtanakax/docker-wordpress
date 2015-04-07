@@ -4,14 +4,14 @@
 
 ### Base Docker Image
 
-[tanaka0323/storage](https://bitbucket.org/tanaka0323/docker-storage "tanaka0323/storage")
+[tanaka0323/storage](https://bitbucket.org/tanaka0323/docker-storage)
 
 ### 説明
 
 Wordpressデータ格納用Dockerコンテナイメージです。
 
-[Dockerとは？](https://docs.docker.com/ "Dockerとは？")  
-[Docker Command Reference](https://docs.docker.com/reference/commandline/cli/ "Docker Command Reference")
+[Dockerとは？](https://docs.docker.com/)  
+[Docker Command Reference](https://docs.docker.com/reference/commandline/cli/)
 
 ### 使用方法
 
@@ -21,7 +21,7 @@ git pull後に
 
 イメージ作成
 
-    $ docker build -t <tag>/wordpress .
+    $ docker build -t tanaka0323/wordpress .
 
 起動
 
@@ -30,7 +30,7 @@ git pull後に
                  -e DB_USER="wpuser" \
                  -e DB_PASSWORD="wppass" \
                  -e DB_HOST="db:3306" \
-                 -ti <tag>/wordpress
+                 -ti tanaka0323/wordpress
 
 コンテナ内へログイン
 
@@ -52,9 +52,9 @@ git pull後に
 
 ### Figでの使用方法
 
-[Figとは](http://www.fig.sh/ "Figとは")  
+[Figとは](http://www.fig.sh/)  
 
-[設定ファイル記述例](https://bitbucket.org/tanaka0323/fig-examples "設定ファイル記述例")
+[設定ファイル記述例](https://bitbucket.org/tanaka0323/fig-examples)
 
 ### License
 
