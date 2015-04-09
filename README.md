@@ -50,11 +50,11 @@ git pull後に
 - <code>DB_PASSWORD</code>ユーザーパスワード。指定しない場合は空パスワードになります。
 - <code>DB_HOST</code>MySQLホスト名
 
-### Figでの使用方法
+### Docker Composeでの使用方法
 
-[Figとは](http://www.fig.sh/)  
+[Docker Composeとは](https://docs.docker.com/compose/)  
 
-[設定ファイル記述例](https://bitbucket.org/tanaka0323/fig-examples)
+[設定ファイル記述例](https://bitbucket.org/tanaka0323/compose-examples)
 
 ### License
 
