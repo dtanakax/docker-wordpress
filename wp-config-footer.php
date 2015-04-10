@@ -16,6 +16,10 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+/* For Nginx Reverse SSL Proxy */
+if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')
+	$_SERVER['HTTPS']='on';
+
 /* 編集が必要なのはここまでです ! WordPress でブログをお楽しみください。 */
 
 /** Absolute path to the WordPress directory. */
