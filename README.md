@@ -1,19 +1,23 @@
 ![wordpress latest](https://img.shields.io/badge/wordpress-latest-brightgreen.svg) ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
-# docker-wordpress
+docker-wordpress
+=====================
 
-### Base Docker Image
+Base Docker Image
+---------------------
 
 [tanaka0323/storage](https://bitbucket.org/tanaka0323/docker-storage)
 
-### 説明
+説明
+---------------------
 
 Wordpressデータ格納用Dockerコンテナイメージです。
 
 [Dockerとは？](https://docs.docker.com/)  
 [Docker Command Reference](https://docs.docker.com/reference/commandline/cli/)
 
-### 使用方法
+使用方法
+---------------------
 
 git pull後に
 
@@ -36,27 +40,31 @@ git pull後に
 
     $ docker exec -ti <name> bash
 
-### 利用可能なボリューム
+利用可能なボリューム
+---------------------
 
 以下のボリュームが利用可能
 
     /var/www/html       # Nginxドキュメントルート
     /var/lib/mysql      # MariaDBデータ領域
 
-### 環境変数
+環境変数
+---------------------
 
-- <code>DB_NAME</code>作成するデータベース名。指定しない場合は作成されません。
-- <code>DB_USER</code>DB_NAMEへアクセス可能なユーザー名。
-- <code>DB_PASSWORD</code>ユーザーパスワード。指定しない場合は空パスワードになります。
-- <code>DB_HOST</code>MySQLホスト名
+- `DB_NAME` 作成するデータベース名。指定しない場合は作成されません。
+- `DB_USER` DB_NAMEへアクセス可能なユーザー名。
+- `DB_PASSWORD` ユーザーパスワード。指定しない場合は空パスワードになります。
+- `DB_HOST` MySQLホスト名
 
-### Docker Composeでの使用方法
+Docker Composeでの使用方法
+---------------------
 
 [Docker Composeとは](https://docs.docker.com/compose/)  
 
 [設定ファイル記述例](https://bitbucket.org/tanaka0323/compose-examples)
 
-### License
+License
+---------------------
 
 The MIT License
 Copyright (c) 2015 Daisuke Tanaka
