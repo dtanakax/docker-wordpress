@@ -33,7 +33,7 @@ git pull後に
                  -e DB_NAME="wordpress" \
                  -e DB_USER="wpuser" \
                  -e DB_PASSWORD="wppass" \
-                 -e DB_HOST="db:3306" \
+                 -e DB_HOST="db" \
                  -ti tanaka0323/wordpress
 
 コンテナ内へログイン
