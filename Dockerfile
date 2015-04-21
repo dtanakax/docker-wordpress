@@ -16,25 +16,27 @@ RUN opkg-install curl tar
 # Create directories
 RUN mkdir -p /var/www/html && \
     mkdir -p /var/lib/mysql
-RUN chmod -R 755 /var/www/html
-RUN chmod -R 755 /var/lib/mysql
+RUN chmod -R 755 /var/www/html && \
+    chmod -R 755 /var/lib/mysql
 
-ADD entrypoint.sh /entrypoint.sh
-RUN chown root:root /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Setup Wordpress
 RUN rm -rf /var/www/html
-RUN curl -k https://ja.wordpress.org/latest-ja.tar.gz >> /wordpress.tar.gz
-RUN tar zxvf /wordpress.tar.gz
-RUN mv /wordpress /var/www/html
-RUN rm -f /wordpress.tar.gz
-RUN chown -R www-data:www-data /var/www/html
-RUN chmod -R 707 /var/www/html/wp-content
-ADD wp-config-footer.php /wp-config-footer.php
+RUN curl -k https://ja.wordpress.org/latest-ja.tar.gz >> /wordpress.tar.gz && \
+    tar zxvf /wordpress.tar.gz && \
+    mv /wordpress /var/www/html && \
+    rm -f /wordpress.tar.gz
 
-# Define mountable directories.
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 707 /var/www/html/wp-content
+
+COPY wp-config-footer.php /wp-config-footer.php
+
+ENTRYPOINT ["./entrypoint.sh"]
+
 VOLUME ["/var/www/html", "/var/lib/mysql"]
 
-# Executing sh
-ENTRYPOINT ./entrypoint.sh
+CMD ["/bin/sh"]
+
