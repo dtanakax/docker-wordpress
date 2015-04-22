@@ -4,6 +4,8 @@ FROM tanaka0323/storage
 # File Author / Maintainer
 MAINTAINER Daisuke Tanaka, tanaka@infocorpus.com
 
+ENV WP_VERSION 4.1.1
+
 # Install packages
 RUN opkg-install curl tar
 
@@ -18,7 +20,7 @@ RUN chmod +x /entrypoint.sh
 
 # Setup Wordpress
 RUN rm -rf /var/www/html
-RUN curl -k https://ja.wordpress.org/latest-ja.tar.gz >> /wordpress.tar.gz && \
+RUN curl -k https://ja.wordpress.org/wordpress-$WP_VERSION-ja.tar.gz >> /wordpress.tar.gz && \
     tar zxvf /wordpress.tar.gz && \
     mv /wordpress /var/www/html && \
     rm -f /wordpress.tar.gz
