@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-if [ "$1" = "/bin/sh" ]; then
+if [ "$1" = "configure" ]; then
     WP_CONFIG=/var/www/html/wp-config.php
 
     if [ ! -f $WP_CONFIG ]; then
@@ -29,5 +29,3 @@ if [ "$1" = "/bin/sh" ]; then
         echo "=> Using an existing Wordpress"
     fi
 fi
-
-exec "$@"

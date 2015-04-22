@@ -4,12 +4,6 @@ FROM tanaka0323/storage
 # File Author / Maintainer
 MAINTAINER Daisuke Tanaka, tanaka@infocorpus.com
 
-# Environment variables
-ENV DB_NAME         wordpress
-ENV DB_USER         wpuser
-ENV DB_PASSWORD     wppass
-ENV DB_HOST         localhost
-
 # Install packages
 RUN opkg-install curl tar
 
@@ -34,9 +28,15 @@ RUN chown -R www-data:www-data /var/www/html && \
 
 COPY wp-config-footer.php /wp-config-footer.php
 
+# Environment variables
+ENV DB_NAME         wordpress
+ENV DB_USER         wpuser
+ENV DB_PASSWORD     wppass
+ENV DB_HOST         localhost
+
 ENTRYPOINT ["./entrypoint.sh"]
 
 VOLUME ["/var/www/html", "/var/lib/mysql"]
 
-CMD ["/bin/sh"]
+CMD ["configure"]
 
