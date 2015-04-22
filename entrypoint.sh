@@ -28,4 +28,6 @@ if [ "$1" = "configure" ]; then
     else
         echo "=> Using an existing Wordpress"
     fi
+else
+    exec "$@"
 fi
