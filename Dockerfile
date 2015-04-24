@@ -26,7 +26,7 @@ RUN curl -k https://ja.wordpress.org/wordpress-$WP_VERSION-ja.tar.gz >> /wordpre
     rm -f /wordpress.tar.gz
 
 RUN chown -R www-data:www-data /var/www/html && \
-    chmod -R 707 /var/www/html/wp-content
+    chmod -R 777 /var/www/html
 
 COPY wp-config-footer.php /wp-config-footer.php
 
