@@ -4,7 +4,7 @@ FROM tanaka0323/storage
 # File Author / Maintainer
 MAINTAINER Daisuke Tanaka, tanaka@infocorpus.com
 
-ENV WP_VERSION 4.1.2
+ENV WP_VERSION 4.2
 
 # Install packages
 RUN opkg-install curl tar
