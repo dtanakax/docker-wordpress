@@ -6,7 +6,7 @@ docker-wordpress
 Base Docker Image
 ---------------------
 
-[tanaka0323/storage](https://bitbucket.org/tanaka0323/docker-storage)
+[dtanakax/storage](https://registry.hub.docker.com/u/dtanakax/storage/)
 
 説明
 ---------------------
@@ -22,7 +22,7 @@ git pull後に
 
 イメージ作成
 
-    $ docker build -t tanaka0323/wordpress .
+    $ docker build -t dtanakax/wordpress .
 
 起動
 
@@ -31,7 +31,7 @@ git pull後に
                  -e DB_USER="wpuser" \
                  -e DB_PASSWORD="wppass" \
                  -e DB_HOST="db" \
-                 -ti tanaka0323/wordpress
+                 -ti dtanakax/wordpress
 
 コンテナ内へログイン
 
