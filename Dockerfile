@@ -1,8 +1,8 @@
 # Set the base image
-FROM tanaka0323/storage
+FROM dtanakax/storage
 
 # File Author / Maintainer
-MAINTAINER Daisuke Tanaka, tanaka@infocorpus.com
+MAINTAINER Daisuke Tanaka, dtanakax@gmail.com
 
 ENV WP_VERSION 4.2.1
 

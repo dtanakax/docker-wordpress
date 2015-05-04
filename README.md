@@ -6,15 +6,12 @@ docker-wordpress
 Base Docker Image
 ---------------------
 
-[tanaka0323/storage](https://bitbucket.org/tanaka0323/docker-storage)
+[dtanakax/storage](https://registry.hub.docker.com/u/dtanakax/storage/)
 
 説明
 ---------------------
 
 Wordpressデータ格納用Dockerコンテナ作成設定
-
-[Dockerとは？](https://docs.docker.com/)  
-[Docker Command Reference](https://docs.docker.com/reference/commandline/cli/)
 
 使用方法
 ---------------------
@@ -25,7 +22,7 @@ git pull後に
 
 イメージ作成
 
-    $ docker build -t tanaka0323/wordpress .
+    $ docker build -t dtanakax/wordpress .
 
 起動
 
@@ -34,7 +31,7 @@ git pull後に
                  -e DB_USER="wpuser" \
                  -e DB_PASSWORD="wppass" \
                  -e DB_HOST="db" \
-                 -ti tanaka0323/wordpress
+                 -ti dtanakax/wordpress
 
 コンテナ内へログイン
 
@@ -55,13 +52,6 @@ git pull後に
 - `DB_USER` DB_NAMEへアクセス可能なユーザー名。
 - `DB_PASSWORD` ユーザーパスワード。指定しない場合は空パスワードになります。
 - `DB_HOST` MySQLホスト名
-
-Docker Composeでの使用方法
----------------------
-
-[Docker Composeとは](https://docs.docker.com/compose/)  
-
-[設定ファイル記述例](https://bitbucket.org/tanaka0323/compose-examples)
 
 License
 ---------------------
