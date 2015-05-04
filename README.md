@@ -16,14 +16,6 @@ Wordpressデータ格納用Dockerコンテナ作成設定
 使用方法
 ---------------------
 
-git pull後に
-
-    $ cd docker-wordpress
-
-イメージ作成
-
-    $ docker build -t dtanakax/wordpress .
-
 起動
 
     $ docker run --name <name> -d \
