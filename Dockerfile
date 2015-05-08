@@ -4,7 +4,7 @@ FROM dtanakax/storage
 # File Author / Maintainer
 MAINTAINER Daisuke Tanaka, dtanakax@gmail.com
 
-ENV WP_VERSION 4.2.1
+ENV WP_VERSION 4.2.2
 
 # Install packages
 RUN opkg-install curl tar
