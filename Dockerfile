@@ -10,25 +10,22 @@ ENV WP_VERSION 4.2.2
 RUN opkg-install curl tar
 
 # Create directories
-RUN mkdir -p /var/www/html && \
+RUN mkdir -p /var/www && \
     mkdir -p /var/lib/mysql
-RUN chmod -R 755 /var/www/html && \
-    chmod -R 755 /var/lib/mysql
-
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+RUN chmod -R 755 /var/lib/mysql
 
 # Setup Wordpress
-RUN rm -rf /var/www/html
 RUN curl -k https://ja.wordpress.org/wordpress-$WP_VERSION-ja.tar.gz >> /wordpress.tar.gz && \
     tar zxvf /wordpress.tar.gz && \
     mv /wordpress /var/www/html && \
     rm -f /wordpress.tar.gz
 
-RUN chown -R www-data:www-data /var/www/html && \
-    chmod -R 777 /var/www/html
+RUN find /var/www/html -type d -exec chmod 705 {} \; && \
+    find /var/www/html -type f -exec chmod 604 {} \;
 
 COPY wp-config-footer.php /wp-config-footer.php
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # Environment variables
 ENV DB_NAME         wordpress
