@@ -21,8 +21,7 @@ if [ "$1" = "configure" ]; then
         s/username_here/$DB_USER/
         s/password_here/$DB_PASSWORD/
         s/localhost/$DB_HOST/" /var/www/html/wp-config-sample.php > $WP_CONFIG
-        chown www-data:www-data $WP_CONFIG
-        chmod 755 $WP_CONFIG
+        chmod 707 $WP_CONFIG
 
         echo "=> Done"
     else
