@@ -6,19 +6,16 @@ MAINTAINER Daisuke Tanaka, dtanakax@gmail.com
 
 ENV WP_VERSION 4.2.3
 
-# Install packages
-RUN opkg-install curl tar
-
 # Create directories
 RUN mkdir -p /var/www && \
     mkdir -p /var/lib/mysql
 RUN chmod -R 755 /var/lib/mysql
 
 # Setup Wordpress
-RUN curl -k https://ja.wordpress.org/wordpress-$WP_VERSION-ja.tar.gz >> /wordpress.tar.gz && \
-    tar zxvf /wordpress.tar.gz && \
+ADD https://ja.wordpress.org/wordpress-$WP_VERSION-ja.zip /wordpress.zip
+RUN unzip /wordpress.zip && \
     mv /wordpress /var/www/html && \
-    rm -f /wordpress.tar.gz
+    rm -f /wordpress.zip
 
 RUN find /var/www/html -type d -exec chmod 705 {} \; && \
     find /var/www/html -type f -exec chmod 604 {} \;
