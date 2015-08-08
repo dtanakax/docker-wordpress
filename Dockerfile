@@ -4,7 +4,7 @@ FROM dtanakax/storage
 # File Author / Maintainer
 MAINTAINER Daisuke Tanaka, dtanakax@gmail.com
 
-ENV WP_VERSION 4.2.3
+ENV WP_VERSION 4.2.4
 
 # Create directories
 RUN mkdir -p /var/www && \
